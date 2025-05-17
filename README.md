@@ -28,12 +28,14 @@ cd detoks-bot-whatsapp
 
 1. Install dependencies:
 
-```shnpm install
+```sh
+npm install
 ```
 
 1. Install yt-dlp if not already installed:
 
-```shpip install -U yt-dlp
+```sh
+pip install -U yt-dlp
 ```
 
 1. Build the project:
