@@ -18,6 +18,8 @@ videos/
 
 # WhatsApp session data
 auth_info_*
+auth_info/*
+auth_info
 *.data.json
 *_auth_info.json
 .session-data/
