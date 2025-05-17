@@ -1,0 +1,59 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# TypeScript build output
+dist/
+build/
+
+# Downloaded videos
+videos/
+*.mp4
+*.webm
+*.mkv
+
+# WhatsApp session data
+auth_info_*
+*.data.json
+*_auth_info.json
+.session-data/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
