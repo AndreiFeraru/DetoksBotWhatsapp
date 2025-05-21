@@ -99,33 +99,13 @@ export async function sendAndCleanupVideo(
 
     try {
         /*
-        Register the message update listener to handle delivery status
-        This will be called when the message is delivered
-        and will remove itself after the first delivery status is received
+        Register the message update/upsert listeners to handle delivery status
+        They will be called when the message is delivered
+        and will remove themselves after the first delivery status is received
         It is used to delete the video after delivery
         */
         sock.ev.on("messages.update", handleMessageUpdate);
         sock.ev.on("messages.upsert", handleMessageUpsert);
-
-        const allevents = [
-            "connection.update",
-            "creds.update",
-            "messaging-history.set",
-            "messages.upsert",
-            "messages.update",
-            "message-receipt.update",
-            "presence.update",
-            "contacts.update",
-            "chats.update",
-            "chats.upsert",
-            "chats.delete",
-            "groups.upsert",
-        ];
-        allevents.forEach((event) => {
-            sock.ev.on(event as any, (data) => {
-                console.log(`Event: ${event}`, data);
-            });
-        });
 
         // Send the message and get the message key
         sentMsg = await sock.sendMessage(remoteJid, {
@@ -160,8 +140,7 @@ export async function sendAndCleanupVideo(
  */
 function shouldIgnoreMessage(msg: WAMessage): boolean {
     // Ignore messages from the bot itself
-    // TODO Uncomment
-    // if (msg.key.fromMe) return true;
+    if (msg.key.fromMe) return true;
 
     // Ignore media or other types of messages
     const text =
